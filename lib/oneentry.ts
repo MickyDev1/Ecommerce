@@ -82,7 +82,7 @@ ReturnType<typeof defineOneEntry>
     throw new Error("API client is still null after setup");
   }
 
-  //Reutn the initialized API client
+  //Return the initialized API client
 
   return apiClient;
 }
