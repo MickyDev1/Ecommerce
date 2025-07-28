@@ -14,7 +14,7 @@ export default function HomePage() {
 return <div className='flex min-h-screen mt-7'>
     <div className='w-full max-w-3xl mx-auto flex flex-col lg:flex-row '>
         <div>
-            <div className='mb-8 lg:mb-12 here '
+            <div className='mb-8 lg:mb-12 cursor-pointer'
     onClick={() => router.push('/')}
     >
         <ChevronLeft className='text-gray-500 h-6 w-6 sm:h-8 sm:h-8 border-2 rounded-full p-1' />
