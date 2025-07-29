@@ -5,6 +5,8 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { ChevronLeft, Loader2 } from 'lucide-react';
+// import { getCatalogWithProducts } from '@/actions/catalog/getCatalogWithProducts';
+
 import { getCatalogWithProducts } from '@/actions/catalog/getCatalogWithProducts';
 import { ICatalog } from '@/types/catalog';
 import { getSignupFormData, handleSignupSubmit } from '@/actions/auth/signup';
