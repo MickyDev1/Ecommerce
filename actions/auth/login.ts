@@ -74,7 +74,7 @@ export const handleLoginSubmit = async (inputValues: { email: string; password: 
             return { message: (error as AuthError).message };
         }
 
-        throw new Error('Failed to login. Please try again');
+        throw new Error('Failed to login, Please try again!');
     }
 
     redirect('/');
