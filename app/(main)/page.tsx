@@ -134,7 +134,7 @@ function AuthForm() {
             </h2>
             <p className='text-base sm:text-lg lg:text-xl text-gray-400 mb-6 sm:mb-8'>
               {isSignUp
-                ? 'Join MickyDev Store today and discover amazing products!'
+                ? 'Join MickyDev Store today and discover amazing things!'
                 : 'Welcome back to MickyDev Store! Log in to continue your shopping journey.'}
             </p>
           </div>
