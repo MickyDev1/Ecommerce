@@ -1,14 +1,14 @@
 import React from 'react';
+
 import Link from 'next/link';
 import { ShoppingCart } from 'lucide-react';
 import { Button } from './ui/button';
-import useCartStore from '@/store/cartstore';
+import useCartStore from '@/store/cartStore';
 import { IProduct } from '@/types/product';
 import { toast } from 'sonner';
 
 const ProductCard = ({ product }: { product: IProduct }) => {
-  const addToCart = useCartStore(( state ) => state.addToCart);
-  
+  const addToCart = useCartStore((state) => state.addToCart);
   const handleAddToCart = (product: IProduct) => {
     addToCart({
       id: product.id,
@@ -22,7 +22,6 @@ const ProductCard = ({ product }: { product: IProduct }) => {
       duration: 5000,
     });
   };
-
   return (
     <div>
       <div className='group relative  overflow-hidden group h-full flex flex-col rounded-lg shadow-lg border-2 border-gray-200 bg-white'>
@@ -31,7 +30,7 @@ const ProductCard = ({ product }: { product: IProduct }) => {
           className='relative w-full pt-[100%] bg-transparent'
         >
           <img
-            src={product.attributeValues.p_image.value.downloadLink || "/placeholder.svg"}
+            src={product.attributeValues.p_image.value.downloadLink}
             alt={product.attributeValues.p_title.value}
             className='
             absolute inset-0 w-full h-full object-contain transition-transform duration-300 group-hover:scale-105 border-b-2 border-gray-200'

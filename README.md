@@ -1,6 +1,6 @@
 Install next.js and tailwind CSS, and create the first template  
 
- - Create the sign-in and sign-up pages UI  
+  Create the sign-in and sign-up pages UI  
 
  - Add OneEntry integration with token management and environment configuration  
 

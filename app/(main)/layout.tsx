@@ -1,6 +1,6 @@
 import Navbar from '@/components/Navbar';
 import React from 'react';
-import { ThemeProvider } from "@/components/theme-provider";
+// import { ThemeProvider } from "@/components/theme-provider";
 
 const Layout = ({
   children,
@@ -11,18 +11,22 @@ const Layout = ({
     <html lang="en" suppressHydrationWarning>
       <head />
       <body>
-        <ThemeProvider
+        <Navbar />
+        <div className='py-20'>{children}</div>
+         
+          {/* Navbar and main content wrapped by ThemeProvider */}
+        {/* <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
-        >
-          {/* Navbar and main content wrapped by ThemeProvider */}
-          <div className=''>
-            <Navbar />
-            <div className='py-20'>{children}</div>
+        > */}
+         
+          {/* <div className=''>
+           
           </div>
-        </ThemeProvider>
+        </ThemeProvider> */}
+          
       </body>
     </html>
   );
