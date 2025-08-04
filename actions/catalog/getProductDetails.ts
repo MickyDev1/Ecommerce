@@ -1,24 +1,21 @@
 'use server';
-
 import { fetchApiClient } from '@/lib/oneentry';
 
-interface SearchParams {
-  query: string;
-}
+export const getProductDetails = async (productId: number) => {
+  const apiClient = await fetchApiClient();
 
-export const searchProductsAction = async ({ query }: SearchParams) => {
+  if (!productId) {
+    throw new Error('Product ID is required.');
+  }
+
   try {
-    const apiClient = await fetchApiClient();
-
-    const products = await apiClient?.Products.searchProduct(query, 'en_US');
-
-    return products || []; // Return product items or empty array
-  } catch (error) {
-    console.error('Error searching products:', error);
-    throw new Error(
-      `Product search failed: ${
-        error instanceof Error ? error.message : 'Unknown error'
-      }`
+    const product = await apiClient?.Products.getProductById(
+      productId,
+      'en_US'
     );
+    return product;
+  } catch (error) {
+    console.error('Failed to fetch product:', error);
+    throw new Error('Failed to fetch product.');
   }
 };

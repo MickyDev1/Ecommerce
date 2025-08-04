@@ -12,9 +12,9 @@ Install next.js and tailwind CSS, and create the first template
 
 - Add Cart functionality with Zustand store and integrate with UI components (Done)
 
-- Add product search functionality and page
+- Add product search functionality and page (Done)
 
-- Add product detail page with fetching functionality for product and related products
+- Add product detail page with fetching functionality for product and related products(Done)
 
 - Add order creation and success/cancel pages with checkout functionality
 
