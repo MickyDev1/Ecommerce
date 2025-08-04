@@ -48,9 +48,9 @@ export default function HomePage() {
                   Welcome to our Store!
                 </h2>
                 <p className="text-xl mb-8 text-gray-700 z-4">
-                  Discover the latest trends and exclusive deals on your
-                  favorite products. Shop now and enjoy a seamless shopping
-                  experience!
+                  Indulge in elegance with our curated selection of premium products.
+                  <br />
+                  Discover timeless style, exclusive offers, and a refined shopping experience made just for you...
                 </p>
                 <img
                   src="https://assets.entrepreneur.com/content/3x2/2000/20150812074510-Online-shopping.jpeg?format=pjeg&auto=webp&crop=16:9&width=675&height=380"
