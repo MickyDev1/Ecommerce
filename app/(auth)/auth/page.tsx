@@ -73,7 +73,7 @@ function AuthForm() {
             setIsSignUp(false);
             toast("User has been created", {
               description: "Please enter your credentials to log in.",
-              duration: 5000,
+              duration: 3000,
             });
           } else {
             setError(response.message);

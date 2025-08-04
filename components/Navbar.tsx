@@ -18,7 +18,7 @@ import getUserSession from "@/actions/auth/getUserSession";
 import logoutAction from "@/actions/auth/logout";
 import { useRouter } from "next/navigation";
 import { IUserEntity } from "oneentry/dist/users/usersInterfaces";
-// import useCartStore from "@/stores/cartStore";
+import useCartStore from "@/store/cartStore";
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -27,7 +27,7 @@ export default function Navbar() {
   const [isLoading, setIsLoading] = useState(true);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
-  //   const cartItems = useCartStore((state) => state.cart);
+  const cartItems = useCartStore((state) => state.cart);
 
   useEffect(() => {
     async function fetchUser() {
@@ -37,7 +37,7 @@ export default function Navbar() {
         if (userData) setUser(userData as IUserEntity);
         setIsLoading(false);
       } catch (error) {
-        console.error(error);
+        console.error({ error });
         setUser(null);
         setIsLoading(false);
       }
@@ -88,7 +88,7 @@ export default function Navbar() {
           <div className="flex items-center">
             <Link href="/" className="flex-shrink-0">
               <span className="text-2xl font-bold bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 bg-clip-text text-transparent">
-                MickyDev Store
+              MickyDev
               </span>
             </Link>
           </div>
@@ -104,6 +104,7 @@ export default function Navbar() {
                 />
               </form>
             </div>
+
             <div>
               <Link href="/cart" onClick={handleMenuItemClick}>
                 <Button
@@ -111,12 +112,12 @@ export default function Navbar() {
                   className="relative bg-transparent hover:bg-transparent cursor-pointer pt-2"
                   variant="ghost"
                 >
-                  {/* <ShoppingCart className="h-5 w-5 text-gray-600 hover:text-purple-500" />
+                  <ShoppingCart className="h-5 w-5 text-gray-600 hover:text-purple-500" />
                   {cartItems.length > 0 && (
                     <span className="absolute top-[-3px] right-[-3px] inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white bg-red-500 rounded-full">
                       {cartItems.length}
                     </span>
-                  )} */}
+                  )}
                 </Button>
               </Link>
             </div>
@@ -129,6 +130,7 @@ export default function Navbar() {
                 </Avatar>
               </div>
             )}
+
             {user && (
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
@@ -139,11 +141,11 @@ export default function Navbar() {
                     <Avatar className="h-8 w-8 cursor-pointer">
                       <AvatarFallback className="bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 hover:from-purple-600 hover:via-pink-600 hover:to-red-600 text-white">
                         {user.formData
-                          ?.find(
+                          .find(
                             (f): f is { marker: "name"; value: string } =>
                               f.marker === "name"
                           )
-                          ?.value?.charAt(0)}
+                          ?.value.charAt(0)}
                       </AvatarFallback>
                     </Avatar>
                   </Button>
@@ -153,7 +155,7 @@ export default function Navbar() {
                     <div className="flex flex-col space-y-1">
                       <p className="text-sm font-medium leading-none bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 bg-clip-text text-transparent">
                         {
-                          user.formData?.find(
+                          user.formData.find(
                             (f): f is { marker: "name"; value: string } =>
                               f.marker === "name"
                           )?.value
@@ -168,9 +170,10 @@ export default function Navbar() {
                   <DropdownMenuItem className="focus:text-purple-600">
                     <Link href="/profile" className="flex w-full">
                       <User className="mr-2 h-4 w-4" />
-                      <span>User Profile</span>
+                      <span>Profile</span>
                     </Link>
                   </DropdownMenuItem>
+
                   <DropdownMenuItem className="focus:text-purple-600">
                     <Link href="/orders" className="flex w-full">
                       <ShoppingCart className="mr-2 h-4 w-4" />
@@ -221,6 +224,7 @@ export default function Navbar() {
           </div>
         </div>
       </div>
+
       {isMobileMenuOpen && (
         <div ref={mobileMenuRef} className="md:hidden bg-gray-100">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
@@ -233,6 +237,7 @@ export default function Navbar() {
                 className="bg-white  "
               />
             </form>
+
             <Link
               href="/cart"
               className="block px-3 py-2 rounded-md text-base font-medium text-gray-500 hover:text-white hover:bg-purple-500"
@@ -248,18 +253,18 @@ export default function Navbar() {
                   <Avatar className="h-8 w-8 border-2 border-gray-700">
                     <AvatarFallback>
                       {user.formData
-                        ?.find(
+                        .find(
                           (f): f is { marker: "name"; value: string } =>
                             f.marker === "name"
                         )
-                        ?.value?.charAt(0)}
+                        ?.value.charAt(0)}
                     </AvatarFallback>
                   </Avatar>
                 </div>
                 <div className="ml-3">
                   <div className="text-base font-medium bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 bg-clip-text text-transparent">
                     {
-                      user.formData?.find(
+                      user.formData.find(
                         (f): f is { marker: "name"; value: string } =>
                           f.marker === "name"
                       )?.value
@@ -280,12 +285,13 @@ export default function Navbar() {
                 >
                   Your Profile
                 </Link>
+
                 <Link
                   href="/orders"
                   className="block px-3 py-2 rounded-md text-base font-medium text-gray-500 hover:text-white hover:bg-purple-500"
                   onClick={handleMenuItemClick}
                 >
-                  Orders
+                  Your Orders
                 </Link>
                 <button
                   onClick={handleLogout}

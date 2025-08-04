@@ -10,6 +10,7 @@ const Layout = ({
   return (
     <html lang="en" suppressHydrationWarning>
       <head />
+      
       <body>
         <Navbar />
         <div className='py-20'>{children}</div>
