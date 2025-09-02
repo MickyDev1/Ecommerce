@@ -1,8 +1,7 @@
 "use server";
-import { IAttributes } from "oneentry/dist/base/utils";
-import { fetchApiClient } from "@/lib/oneentry";
-import { ISignUpData } from "oneentry/dist/auth-provider/authProvidersInterfaces";
 
+import {useCreateUserWithEmailAndPassword} from 'react-firebase-hooks/auth';
+import {auth} from '@/app/firebase/config';
 export const getSignupFormData = async (): Promise<IAttributes[]> => {
   try {
     const apiClient = await fetchApiClient();

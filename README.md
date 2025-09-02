@@ -27,3 +27,4 @@ Install next.js and tailwind CSS, and create the first template (Done)
 ## \*\* \*\*
 
 
+Issue with Oneentry
